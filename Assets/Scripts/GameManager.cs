@@ -6,8 +6,8 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
 
-    [SerializeField] private List<StorySettings> storiesSettings;
-
+    [SerializeField] private StoryManager storyManager;
+    
     private int currentStorySettingsIndex;
 
 
@@ -17,19 +17,14 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public StoryManager StoryManager
+    {
+        get { return storyManager; }
+    }
+    
+
     private void Awake()
     {
         instance = this;
-    }
-
-
-    public bool TryGetNextStorySettings(out StorySettings storySettings)
-    {
-        storySettings = (currentStorySettingsIndex >= storiesSettings.Count)
-            ? null
-            : storiesSettings[currentStorySettingsIndex];
-        currentStorySettingsIndex++;
-
-        return storySettings != null;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,20 @@ using UnityEngine;
 public class StorySettings : ScriptableObject
 {
     public string message;
-    
-    // TODO add actions on agree or disagree
+
+    public AnswerInfo positiveAnswerInfo;
+    public AnswerInfo negativeAnswerInfo;
 }
+
+
+[Serializable]
+public class AnswerInfo
+{
+    public float addedResourcefulness;
+    public float addedCourage;
+    public float addedIndifference;
+    public float addedHappy;
+
+    public bool isLose;
+    public StorySettings nextStorySettings;
+}  
