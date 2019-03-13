@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CardsAnimation : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class CardsAnimation : MonoBehaviour
 
     [SerializeField] private GameObject card;
     [SerializeField] private GameObject textPanel;
+    [SerializeField] private GameObject textYes;
+    [SerializeField] private GameObject textNo;
 
     private Vector2 diffPos;
     private RectTransform cardRectTransform;
@@ -71,8 +75,44 @@ public class CardsAnimation : MonoBehaviour
             }
             //startPos = localpoint;
         }
-        
-        
+        else
+        {
+            if (cardRectTransform.anchoredPosition.x > 0)
+            {
+                cardRectTransform.anchoredPosition -= Vector2.Lerp(Vector2.zero, new Vector2(100,0), 0.05f);
+                cardRectTransform.localEulerAngles -= Vector3.Lerp(Vector3.zero, new Vector3(0, 0, -10f), 0.05f);
+            }
+            if (cardRectTransform.anchoredPosition.x < 0)
+            {
+                cardRectTransform.anchoredPosition -= Vector2.Lerp(Vector2.zero, new Vector2(-100,0), 0.05f);
+                cardRectTransform.localEulerAngles -= Vector3.Lerp(Vector3.zero, new Vector3(0, 0, 10f), 0.05f);
+            }
+            
+        }
+
+
+        if (cardRectTransform.anchoredPosition.x > 0)
+        {
+            Color colorPanel = textPanel.GetComponent<Image>().color;
+            colorPanel.a = cardRectTransform.anchoredPosition.x / 255;
+            textPanel.GetComponent<Image>().color = colorPanel;
+            
+            Color colorNo = textNo.GetComponent<TextMeshProUGUI>().color;
+            colorNo.a = cardRectTransform.anchoredPosition.x * 2.55f / 255f;
+            textNo.GetComponent<TextMeshProUGUI>().color = colorNo;
+        }
+        else if (cardRectTransform.anchoredPosition.x < 0)
+        {
+            Color colorPanel = textPanel.GetComponent<Image>().color;
+            colorPanel.a = -cardRectTransform.anchoredPosition.x / 255;
+            textPanel.GetComponent<Image>().color = colorPanel;
+            
+            Color colorYes = textYes.GetComponent<TextMeshProUGUI>().color;
+            colorYes.a = -cardRectTransform.anchoredPosition.x * 2.55f / 255f;
+            textYes.GetComponent<TextMeshProUGUI>().color = colorYes;
+        }
+
+
         
         //normalizedPoint = Rect.PointToNormalized(cardRectTransform.rect, localpoint);
  
