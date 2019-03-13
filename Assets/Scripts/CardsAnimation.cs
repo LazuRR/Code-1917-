@@ -111,6 +111,15 @@ public class CardsAnimation : MonoBehaviour
             colorYes.a = -cardRectTransform.anchoredPosition.x * 2.55f / 255f;
             textYes.GetComponent<TextMeshProUGUI>().color = colorYes;
         }
+        else
+        {
+            Color colorNo = textNo.GetComponent<TextMeshProUGUI>().color;
+            colorNo.a = 0;
+            textNo.GetComponent<TextMeshProUGUI>().color = colorNo;
+            Color colorYes = textYes.GetComponent<TextMeshProUGUI>().color;
+            colorYes.a = 0;
+            textYes.GetComponent<TextMeshProUGUI>().color = colorYes;
+        }
 
 
         
