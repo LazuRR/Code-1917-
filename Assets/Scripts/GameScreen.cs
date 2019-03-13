@@ -7,8 +7,6 @@ using UnityEngine.UI;
 public class GameScreen : MonoBehaviour
 {
     [SerializeField] private Card card;
-    [SerializeField] private Button agreeButton;
-    [SerializeField] private Button disagreeButton;
     [SerializeField] private EndGamePopup endGamePopupPrefab;
     [SerializeField] Image resourcefulnessImage;
     [SerializeField] Image courageImage;
@@ -22,14 +20,24 @@ public class GameScreen : MonoBehaviour
 
     private void OnEnable()
     {
-        agreeButton.onClick.AddListener(AgreeButton_OnClick);
-        disagreeButton.onClick.AddListener(DisagreeButton_OnClick);
+        CardsAnimation.OnAnswer += CardsAnimationOnOnAnswer;
+    }
+
+    private void CardsAnimationOnOnAnswer(bool isPositive)
+    {
+        if (isPositive)
+        {
+            AgreeButton_OnClick();
+        }
+        else
+        {
+            DisagreeButton_OnClick();
+        }
     }
 
     private void OnDisable()
     {
-        agreeButton.onClick.RemoveListener(AgreeButton_OnClick);
-        disagreeButton.onClick.RemoveListener(DisagreeButton_OnClick);
+        CardsAnimation.OnAnswer -= CardsAnimationOnOnAnswer;
 
         DOTween.Kill(this);
     }

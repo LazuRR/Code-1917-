@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -6,6 +7,8 @@ using UnityEngine.UI;
 
 public class CardsAnimation : MonoBehaviour
 {
+    public static event Action<bool> OnAnswer;
+
     private Vector2 startPos;
     private Vector2 prevPos;
     private bool isButtonUp = true;
@@ -61,10 +64,18 @@ public class CardsAnimation : MonoBehaviour
 
             if (cardRectTransform.anchoredPosition.x > 100)
             {
+                if (OnAnswer != null)
+                {
+                    OnAnswer(false);
+                }
                 cardRectTransform.anchoredPosition = new Vector2(100, cardRectTransform.anchoredPosition.y);
             }
             if (cardRectTransform.anchoredPosition.x < -100)
             {
+                if (OnAnswer != null)
+                {
+                    OnAnswer(true);
+                }
                 cardRectTransform.anchoredPosition = new Vector2(-100, cardRectTransform.anchoredPosition.y);
             }
             
