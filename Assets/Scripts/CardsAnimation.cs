@@ -15,17 +15,26 @@ public class CardsAnimation : MonoBehaviour
 
     [SerializeField] private GameObject card;
     [SerializeField] private GameObject textPanel;
-    [SerializeField] private GameObject textYes;
-    [SerializeField] private GameObject textNo;
+    [SerializeField] private TextMeshProUGUI textMeshProYes;
+    [SerializeField] private TextMeshProUGUI textMeshProNo;
 
     private Vector2 diffPos;
     private RectTransform cardRectTransform;
     private Vector2 localpoint;
     private Quaternion rotate;
+
+    [SerializeField] private Canvas canvas;
+
+    private Image imagePanel;
+
+    [SerializeField] private float maxBorder = 100;
+    [SerializeField] private float maxAngle = 10;
+    [SerializeField] private float speed = 5f;
     
     void Start()
     {
         cardRectTransform = card.GetComponent<RectTransform>();
+        imagePanel = textPanel.GetComponent<Image>();
     }
 
     
@@ -36,17 +45,33 @@ public class CardsAnimation : MonoBehaviour
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
                 cardRectTransform, 
                 Input.mousePosition, 
-                GetComponentInParent<Canvas>().worldCamera, 
+                canvas.worldCamera, 
                 out startPos);
             
             prevPos = startPos;
 
             isButtonUp = false;
         }
-
+        
+        Vector3 cardPos = cardRectTransform.anchoredPosition;
+        
         if (Input.GetMouseButtonUp(0))
         {
             isButtonUp = true;
+            if (cardPos.x > maxBorder - 1f)
+            {
+                if (OnAnswer != null)
+                {
+                    OnAnswer(false);
+                }
+            }
+            else if (cardPos.x < -maxBorder + 1f)
+            {
+                if (OnAnswer != null)
+                {
+                    OnAnswer(true);
+                }
+            }
         }
         
         if (!isButtonUp)
@@ -54,7 +79,7 @@ public class CardsAnimation : MonoBehaviour
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
                 cardRectTransform, 
                 Input.mousePosition, 
-                GetComponentInParent<Canvas>().worldCamera, 
+                canvas.worldCamera, 
                 out localpoint);
 
             diffPos = localpoint - prevPos;
@@ -62,80 +87,69 @@ public class CardsAnimation : MonoBehaviour
             cardRectTransform.anchoredPosition += diffPos;
             //cardRectTransform.anchoredPosition = new Vector2(diffPos.x + cardRectTransform.anchoredPosition.x, -Mathf.Abs(diffPos.x / 3));;
 
-            if (cardRectTransform.anchoredPosition.x > 100)
+            if (cardRectTransform.anchoredPosition.x > maxBorder)
             {
-                if (OnAnswer != null)
-                {
-                    OnAnswer(false);
-                }
-                cardRectTransform.anchoredPosition = new Vector2(100, cardRectTransform.anchoredPosition.y);
+                cardRectTransform.anchoredPosition = new Vector2(maxBorder, cardRectTransform.anchoredPosition.y);
             }
-            if (cardRectTransform.anchoredPosition.x < -100)
+            if (cardRectTransform.anchoredPosition.x < -maxBorder)
             {
-                if (OnAnswer != null)
-                {
-                    OnAnswer(true);
-                }
-                cardRectTransform.anchoredPosition = new Vector2(-100, cardRectTransform.anchoredPosition.y);
+                cardRectTransform.anchoredPosition = new Vector2(-maxBorder, cardRectTransform.anchoredPosition.y);
             }
             
-            cardRectTransform.localEulerAngles = (new Vector3(0,0,-cardRectTransform.anchoredPosition.x / 10));
-            if (cardRectTransform.anchoredPosition.y < -20)
-            {
-                cardRectTransform.anchoredPosition = new Vector2(cardRectTransform.anchoredPosition.x, -20);
-            }
-            //startPos = localpoint;
+            cardPos = cardRectTransform.anchoredPosition;
+            cardRectTransform.localEulerAngles = (new Vector3(0,0,-cardPos.x / maxAngle));
         }
         else
         {
-            if (cardRectTransform.anchoredPosition.x > 0)
+            if (cardPos.x > 0)
             {
-                cardRectTransform.anchoredPosition -= Vector2.Lerp(Vector2.zero, new Vector2(100,0), 0.05f);
-                cardRectTransform.localEulerAngles -= Vector3.Lerp(Vector3.zero, new Vector3(0, 0, -10f), 0.05f);
+                cardRectTransform.anchoredPosition -= Vector2.Lerp(Vector2.zero, new Vector2(maxBorder,0), speed / 100f);
+                cardRectTransform.localEulerAngles -= Vector3.Lerp(Vector3.zero, new Vector3(0, 0, -maxAngle), speed / 100f);
             }
-            if (cardRectTransform.anchoredPosition.x < 0)
+            if (cardPos.x < 0)
             {
-                cardRectTransform.anchoredPosition -= Vector2.Lerp(Vector2.zero, new Vector2(-100,0), 0.05f);
-                cardRectTransform.localEulerAngles -= Vector3.Lerp(Vector3.zero, new Vector3(0, 0, 10f), 0.05f);
+                cardRectTransform.anchoredPosition -= Vector2.Lerp(Vector2.zero, new Vector2(-maxBorder,0), speed / 100f);
+                cardRectTransform.localEulerAngles -= Vector3.Lerp(Vector3.zero, new Vector3(0, 0, maxAngle), speed / 100f);
             }
             
         }
 
+        #region TransparencyChange
 
-        if (cardRectTransform.anchoredPosition.x > 0)
-        {
-            Color colorPanel = textPanel.GetComponent<Image>().color;
-            colorPanel.a = cardRectTransform.anchoredPosition.x / 255;
-            textPanel.GetComponent<Image>().color = colorPanel;
-            
-            Color colorNo = textNo.GetComponent<TextMeshProUGUI>().color;
-            colorNo.a = cardRectTransform.anchoredPosition.x * 2.55f / 255f;
-            textNo.GetComponent<TextMeshProUGUI>().color = colorNo;
-        }
-        else if (cardRectTransform.anchoredPosition.x < 0)
-        {
-            Color colorPanel = textPanel.GetComponent<Image>().color;
-            colorPanel.a = -cardRectTransform.anchoredPosition.x / 255;
-            textPanel.GetComponent<Image>().color = colorPanel;
-            
-            Color colorYes = textYes.GetComponent<TextMeshProUGUI>().color;
-            colorYes.a = -cardRectTransform.anchoredPosition.x * 2.55f / 255f;
-            textYes.GetComponent<TextMeshProUGUI>().color = colorYes;
-        }
-        else
-        {
-            Color colorNo = textNo.GetComponent<TextMeshProUGUI>().color;
-            colorNo.a = 0;
-            textNo.GetComponent<TextMeshProUGUI>().color = colorNo;
-            Color colorYes = textYes.GetComponent<TextMeshProUGUI>().color;
-            colorYes.a = 0;
-            textYes.GetComponent<TextMeshProUGUI>().color = colorYes;
-        }
-
-
+        Color colorPanel = imagePanel.color;
+        Color colorNo = textMeshProNo.color;
+        Color colorYes = textMeshProYes.color;
+        float posX = cardRectTransform.anchoredPosition.x;
         
-        //normalizedPoint = Rect.PointToNormalized(cardRectTransform.rect, localpoint);
- 
-        //Debug.Log(localpoint.ToString());
+        if (posX > 0)
+        {
+            colorPanel.a = posX / 255;
+            imagePanel.color = colorPanel;
+
+            colorNo.a = posX * 2.55f / 255f;
+            textMeshProNo.color = colorNo;
+        }
+        else
+        {
+            if (posX < 0)
+            {
+                colorPanel.a = - posX / 255;
+                imagePanel.color = colorPanel;
+
+                colorYes.a = - posX * 2.55f / 255f;
+                textMeshProYes.color = colorYes;
+            }
+            else
+            {
+                colorNo.a = 0;
+                textMeshProNo.color = colorNo;
+
+                colorYes.a = 0;
+                textMeshProYes.color = colorYes;
+            }
+        }
+
+        #endregion
+        
     }
 }
