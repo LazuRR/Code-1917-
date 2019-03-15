@@ -1421,8 +1421,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card: {fileID: 1208301195}
   textPanel: {fileID: 1258891847}
-  textYes: {fileID: 1731865780}
-  textNo: {fileID: 1784817037}
+  textMeshProYes: {fileID: 1731865782}
+  textMeshProNo: {fileID: 1784817039}
+  canvas: {fileID: 1541022727}
+  maxBorder: 100
+  maxAngle: 10
+  speed: 5
 --- !u!114 &1208301201
 MonoBehaviour:
   m_ObjectHideFlags: 0
