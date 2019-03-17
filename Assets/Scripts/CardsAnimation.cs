@@ -30,16 +30,50 @@ public class CardsAnimation : MonoBehaviour
     [SerializeField] private float maxBorder = 100;
     [SerializeField] private float maxAngle = 10;
     [SerializeField] private float speed = 5f;
+
+    private GameObject currentCard = null;
+    private List<GameObject> prevCards = new List<GameObject>();
+
+    private bool isPrevRight;
+
+    [SerializeField] private float fadeSpeed = 5f;
+    [SerializeField] private float fadeRotateSpeed = 5f;
     
     void Start()
     {
         cardRectTransform = card.GetComponent<RectTransform>();
         imagePanel = textPanel.GetComponent<Image>();
+
+        currentCard = this.gameObject;
     }
 
     
     void Update()
     {
+        if (prevCards.Count > 0)
+        {
+            foreach (GameObject obj in prevCards)
+            {
+                if (obj == null)
+                {
+                    prevCards.Remove(obj);
+                    break;
+                }
+                
+                RectTransform rectTransform = obj.GetComponent<RectTransform>();
+                if (isPrevRight)
+                {
+                    rectTransform.Translate(Vector3.right * fadeSpeed, Space.World);
+                    rectTransform.localEulerAngles += Vector3.back * fadeRotateSpeed;
+                }
+                else
+                {
+                    rectTransform.Translate(Vector3.left * fadeSpeed, Space.World);
+                    rectTransform.localEulerAngles += Vector3.forward * fadeRotateSpeed;
+                }
+            }
+        }
+        
         if (Input.GetMouseButtonDown(0))
         {
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
@@ -72,6 +106,23 @@ public class CardsAnimation : MonoBehaviour
                     OnAnswer(true);
                 }
             }
+            
+            if (cardRectTransform.anchoredPosition.x > 0)
+            {
+                isPrevRight = true;
+            }
+            else if (cardRectTransform.anchoredPosition.x < 0)
+            {
+                isPrevRight = false;
+            }
+
+            GameObject clone = Instantiate(card, transform.parent);
+            prevCards.Add(clone);
+            Destroy(clone, 0.3f);
+            Color color = clone.GetComponent<Image>().color = new Color32(40,40,50,255);
+
+            cardRectTransform.anchoredPosition = Vector2.zero;
+            cardRectTransform.localEulerAngles = Vector3.zero;
         }
         
         if (!isButtonUp)
@@ -97,7 +148,7 @@ public class CardsAnimation : MonoBehaviour
             }
             
             cardPos = cardRectTransform.anchoredPosition;
-            cardRectTransform.localEulerAngles = (new Vector3(0,0,-cardPos.x / maxAngle));
+            cardRectTransform.localEulerAngles = (new Vector3(0,0,-cardPos.x / maxAngle));    
         }
         else
         {
