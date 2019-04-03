@@ -8,6 +8,7 @@ using UnityEngine;
 public class StorySettings : ScriptableObject
 {
     public string message;
+    public bool isMessageOnly;
 
     public AnswerInfo positiveAnswerInfo;
     public AnswerInfo negativeAnswerInfo;
