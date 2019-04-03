@@ -15,8 +15,8 @@ public class CardsAnimation : MonoBehaviour
 
     [SerializeField] private GameObject card;
     [SerializeField] private GameObject textPanel;
-    [SerializeField] private TextMeshProUGUI textMeshProYes;
-    [SerializeField] private TextMeshProUGUI textMeshProNo;
+    [SerializeField] private Text textMeshProYes;
+    [SerializeField] private Text textMeshProNo;
 
     private Vector2 diffPos;
     private RectTransform cardRectTransform;

@@ -1070,7 +1070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b417f09c62ea57e44adea515c311263f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstStory: {fileID: 11400000, guid: b2d28de81103bfb4daded5ad40ada572, type: 2}
+  firstStory: {fileID: 11400000, guid: 7ca833f80b643a54dada7bc68a8a3e48, type: 2}
   resourcefulness: 0
   courage: 0
   indifference: 0
@@ -1507,7 +1507,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1376926446
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2472,6 +2472,11 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 1546196821}
+    - target: {fileID: 8568485013030577087, guid: 179cf15bc15fdee4284ed0ba97ce57fd,
+        type: 3}
+      propertyPath: endAlphaValue
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8568485013030577086, guid: 179cf15bc15fdee4284ed0ba97ce57fd,
         type: 3}
       propertyPath: canvas

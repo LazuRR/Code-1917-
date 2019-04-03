@@ -22,7 +22,8 @@ MonoBehaviour:
     addedIndifference: 0
     addedHappy: 0
     isLose: 0
-    nextStorySettings: {fileID: 0}
+    nextStorySettings: {fileID: 11400000, guid: c0ec314a3a09de349a1d183b4b53c20b,
+      type: 2}
   negativeAnswerInfo:
     answerText: 
     addedResourcefulness: 0
@@ -30,4 +31,5 @@ MonoBehaviour:
     addedIndifference: 0
     addedHappy: 0
     isLose: 0
-    nextStorySettings: {fileID: 0}
+    nextStorySettings: {fileID: 11400000, guid: c0ec314a3a09de349a1d183b4b53c20b,
+      type: 2}

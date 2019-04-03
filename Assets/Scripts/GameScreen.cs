@@ -73,7 +73,7 @@ public class GameScreen : MonoBehaviour
             isAnswerButtonsEnabled = false;
             card.HideText(() =>
             {
-                card.ShowText(currentStorySettings.message, () => { isAnswerButtonsEnabled = true; });
+                card.ShowText(currentStorySettings, () => { isAnswerButtonsEnabled = true; });
             });
         }
         else
