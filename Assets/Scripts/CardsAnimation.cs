@@ -97,6 +97,23 @@ public class CardsAnimation : MonoBehaviour
                 if (OnAnswer != null)
                 {
                     OnAnswer(false);
+                    
+                    if (cardRectTransform.anchoredPosition.x > 0)
+                    {
+                        isPrevRight = true;
+                    }
+                    else if (cardRectTransform.anchoredPosition.x < 0)
+                    {
+                        isPrevRight = false;
+                    }
+
+                    GameObject clone = Instantiate(card, transform.parent);
+                    prevCards.Add(clone);
+                    Destroy(clone, 0.3f);
+                    Color color = clone.GetComponent<Image>().color = new Color32(40,40,50,255);
+
+                    cardRectTransform.anchoredPosition = Vector2.zero;
+                    cardRectTransform.localEulerAngles = Vector3.zero;
                 }
             }
             else if (cardPos.x < -maxBorder + 1f)
@@ -104,25 +121,27 @@ public class CardsAnimation : MonoBehaviour
                 if (OnAnswer != null)
                 {
                     OnAnswer(true);
+                    
+                    if (cardRectTransform.anchoredPosition.x > 0)
+                    {
+                        isPrevRight = true;
+                    }
+                    else if (cardRectTransform.anchoredPosition.x < 0)
+                    {
+                        isPrevRight = false;
+                    }
+
+                    GameObject clone = Instantiate(card, transform.parent);
+                    prevCards.Add(clone);
+                    Destroy(clone, 0.3f);
+                    Color color = clone.GetComponent<Image>().color = new Color32(40,40,50,255);
+
+                    cardRectTransform.anchoredPosition = Vector2.zero;
+                    cardRectTransform.localEulerAngles = Vector3.zero;
                 }
             }
             
-            if (cardRectTransform.anchoredPosition.x > 0)
-            {
-                isPrevRight = true;
-            }
-            else if (cardRectTransform.anchoredPosition.x < 0)
-            {
-                isPrevRight = false;
-            }
-
-            GameObject clone = Instantiate(card, transform.parent);
-            prevCards.Add(clone);
-            Destroy(clone, 0.3f);
-            Color color = clone.GetComponent<Image>().color = new Color32(40,40,50,255);
-
-            cardRectTransform.anchoredPosition = Vector2.zero;
-            cardRectTransform.localEulerAngles = Vector3.zero;
+            
         }
         
         if (!isButtonUp)
@@ -152,15 +171,20 @@ public class CardsAnimation : MonoBehaviour
         }
         else
         {
-            if (cardPos.x > 0)
+            if (cardPos.x > 5)
             {
                 cardRectTransform.anchoredPosition -= Vector2.Lerp(Vector2.zero, new Vector2(maxBorder,0), speed / 100f);
                 cardRectTransform.localEulerAngles -= Vector3.Lerp(Vector3.zero, new Vector3(0, 0, -maxAngle), speed / 100f);
             }
-            if (cardPos.x < 0)
+            else if (cardPos.x < -5)
             {
                 cardRectTransform.anchoredPosition -= Vector2.Lerp(Vector2.zero, new Vector2(-maxBorder,0), speed / 100f);
                 cardRectTransform.localEulerAngles -= Vector3.Lerp(Vector3.zero, new Vector3(0, 0, maxAngle), speed / 100f);
+            }
+            else
+            {
+                cardRectTransform.anchoredPosition = Vector2.zero;
+                cardRectTransform.localEulerAngles -= Vector3.zero;
             }
             
         }
