@@ -80,7 +80,7 @@ public class GameScreen : MonoBehaviour
         {
             EndGamePopup endGamePopup = Instantiate(endGamePopupPrefab, transform);
             endGamePopup.transform.localPosition = Vector3.zero;
-            endGamePopup.Show(isLose ? "YOU LOSE :(" : "YOU WIN :)");
+            endGamePopup.Show("End game");
         }
 
         StoryManager storyManager = GameManager.Instance.StoryManager;
