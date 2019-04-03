@@ -17,6 +17,8 @@ public class StorySettings : ScriptableObject
 [Serializable]
 public class AnswerInfo
 {
+    public string answerText;
+
     public float addedResourcefulness;
     public float addedCourage;
     public float addedIndifference;
