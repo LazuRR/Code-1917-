@@ -27,7 +27,7 @@ MonoBehaviour:
     answerText: "\u0414\u043E\u0441\u0442\u0430\u0442\u044C \u0440\u0435\u0432\u043E\u043B\u044C\u0432\u0435\u0440"
     addedResourcefulness: 0
     addedCourage: 0
-    addedIndifference: 0
+    addedIndifference: 2
     addedHappy: 0
     isLose: 0
     nextStorySettings: {fileID: 11400000, guid: f037c697bcc4be9428948827b05b15a7,
@@ -35,8 +35,8 @@ MonoBehaviour:
   negativeAnswerInfo:
     answerText: "\u041F\u043E\u0434\u043E\u0439\u0442\u0438 \u0438 \u043E\u0431\u043D\u044F\u0442\u044C"
     addedResourcefulness: 0
-    addedCourage: 0
-    addedIndifference: 0
+    addedCourage: 1
+    addedIndifference: -1
     addedHappy: 0
     isLose: 0
     nextStorySettings: {fileID: 11400000, guid: fb0bdffa20fbfe6428ba4f86301ce477,

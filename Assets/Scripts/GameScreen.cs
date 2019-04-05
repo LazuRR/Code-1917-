@@ -106,7 +106,7 @@ public class GameScreen : MonoBehaviour
             resourcefulnessImage.fillAmount = res - factor * deltaResource;
             happyImage.fillAmount = happy - factor * deltaHappy;
             courageImage.fillAmount = cor - factor * deltaCour;
-            indifferenceImage.fillAmount = indiff + factor * deltaIn;
+            indifferenceImage.fillAmount = indiff - factor * deltaIn;
         }, 1, 0.1f).SetId(this);
     }
 }

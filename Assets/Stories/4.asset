@@ -27,8 +27,8 @@ MonoBehaviour:
       \u0431\u0435\u0434\u0430, \u043D\u043E \u043C\u043D\u0435 \u043D\u0443\u0436\u043D\u0430
       \u043F\u043E\u043C\u043E\u0449\u044C. "
     addedResourcefulness: 0
-    addedCourage: 0
-    addedIndifference: 0
+    addedCourage: 1
+    addedIndifference: -1
     addedHappy: 0
     isLose: 0
     nextStorySettings: {fileID: 11400000, guid: 268443486b089f24b8d4868cb1f88b3f,
@@ -39,7 +39,7 @@ MonoBehaviour:
     addedResourcefulness: 0
     addedCourage: 0
     addedIndifference: 0
-    addedHappy: 0
+    addedHappy: 1
     isLose: 0
     nextStorySettings: {fileID: 11400000, guid: 584052a5a3cb3e7419687f33cc70ff90,
       type: 2}
