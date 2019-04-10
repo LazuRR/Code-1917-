@@ -39,11 +39,11 @@
 
 ## Сравнение архитектур As Is и To Be
 Архитектуры As Is (диаграмма классов) и To Be (диаграмма развертывания и структурная) получились почти одинаковыми, исключениями являются добавление пакета StorySettings в GameManager и добавления константных параметров. Столь незначительные различия можно объяснить довольно простой системой сущностей и взаимосвязей между ними.
-Диаграмма классов:
-[!ClassDiagram](https://github.com/OdareNNbI/Code-1917-/blob/master/Documents/Diagrams/ClassDiagram.jpg)
-Диаграммы развертывания и структурная:
-[!DeploymetDiagram](https://github.com/OdareNNbI/Code-1917-/blob/master/Documents/Diagrams/DeploymentDiagram.jpg)
-[!StructDiagram](https://github.com/OdareNNbI/Code-1917-/blob/master/Documents/Diagrams/StructDiagram.png)
+- Диаграмма классов:
+![ClassDiagram](https://github.com/OdareNNbI/Code-1917-/blob/master/Documents/Diagrams/ClassDiagram.jpg)
+- Диаграммы развертывания и структурная:
+![DeploymetDiagram](https://github.com/OdareNNbI/Code-1917-/blob/master/Documents/Diagrams/DeploymentDiagram.jpg)
+![StructDiagram](https://github.com/OdareNNbI/Code-1917-/blob/master/Documents/Diagrams/StructDiagram.png)
 
 Пути улучшения архитектуры:
 
