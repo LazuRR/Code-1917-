@@ -5,3 +5,5 @@ Code[1917] - 2D game in the genre of quest with a branched storyline.
 * [Class diagram](https://github.com/OdareNNbI/Code-1917-/blob/master/Documents/Diagrams/ClassDiagram.jpg)
 * [Deployment diagram](https://github.com/OdareNNbI/Code-1917-/blob/master/Documents/Diagrams/DeploymentDiagram.jpg)
 * [Struct diagram](https://github.com/OdareNNbI/Code-1917-/blob/master/Documents/Diagrams/StructDiagram.png)
+
+##### [Pair Programming](https://github.com/OdareNNbI/Code-1917-/blob/master/Documents/PairProgramming.md)
