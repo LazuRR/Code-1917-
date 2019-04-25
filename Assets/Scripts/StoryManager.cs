@@ -4,26 +4,35 @@ using UnityEngine;
 
 public class StoryManager : MonoBehaviour
 {
-    public const float MAX_SCORE_COUNT = 6f;
-    
     [SerializeField] private StorySettings firstStory;
-    
-    // TODO bad code :( sorry
-    public float resourcefulness;
-    public float courage;
-    public float indifference;
-    public float happy;
-    
+    [SerializeField] private List<AddedParameterInfo> beginParameterInfos;
+    [SerializeField] private int maxValue;
+    [SerializeField] private int minValueForLose;
+
+    private Dictionary<ParameterType, int> valueByType;
+
+
+    public Dictionary<ParameterType, int> ValueByType => valueByType;
+
+    public int MaxValue => maxValue;
+
+
+    private void Awake()
+    {
+        valueByType = new Dictionary<ParameterType, int>();
+
+        for (int i = 0; i < beginParameterInfos.Count; i++)
+        {
+            valueByType.Add(beginParameterInfos[i].parameterType, beginParameterInfos[i].value);
+        }
+    }
+
+
     public StorySettings GetNextStory(StorySettings settings, bool isPositiveAnswer, out bool isLose)
     {
         isLose = false;
         if (settings == null)
         {
-            resourcefulness = MAX_SCORE_COUNT / 2f;
-            courage = MAX_SCORE_COUNT / 2f;
-            indifference = MAX_SCORE_COUNT / 2f;
-            happy = MAX_SCORE_COUNT / 2f;
-            
             return firstStory;
         }
 
@@ -34,10 +43,18 @@ public class StoryManager : MonoBehaviour
 
         if (nextStorySettings != null)
         {
-            resourcefulness = Mathf.Clamp(resourcefulness + answerInfo.addedResourcefulness, 0f, MAX_SCORE_COUNT);
-            courage = Mathf.Clamp(courage + answerInfo.addedCourage, 0f, MAX_SCORE_COUNT);
-            indifference = Mathf.Clamp(indifference + answerInfo.addedIndifference, 0f, MAX_SCORE_COUNT);
-            happy = Mathf.Clamp(happy + answerInfo.addedHappy, 0f, MAX_SCORE_COUNT);
+            for (int i = 0; i < answerInfo.addedParameterInfos.Count; i++)
+            {
+                if (!valueByType.ContainsKey(answerInfo.addedParameterInfos[i].parameterType))
+                {
+                    valueByType.Add(answerInfo.addedParameterInfos[i].parameterType, 0);
+                }
+
+                int value = valueByType[answerInfo.addedParameterInfos[i].parameterType];
+                value = Mathf.Clamp(value + answerInfo.addedParameterInfos[i].value, 0, maxValue);
+
+                valueByType[answerInfo.addedParameterInfos[i].parameterType] = value;
+            }
         }
 
         return nextStorySettings;

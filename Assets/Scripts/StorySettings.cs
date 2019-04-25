@@ -22,11 +22,25 @@ public class AnswerInfo
 {
     public string answerText;
 
-    public float addedResourcefulness;
-    public float addedCourage;
-    public float addedIndifference;
-    public float addedHappy;
+    public List<AddedParameterInfo> addedParameterInfos;
 
     public bool isLose;
     public StorySettings nextStorySettings;
-}  
+}
+
+
+public enum ParameterType
+{
+    Information = 1,
+    Personalisation = 2,
+    Trust = 3,
+    Money = 4
+}
+
+
+[Serializable]
+public struct AddedParameterInfo
+{
+    public ParameterType parameterType;
+    public int value;
+}

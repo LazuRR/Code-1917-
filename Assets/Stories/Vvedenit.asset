@@ -39,19 +39,15 @@ MonoBehaviour:
   sprite: {fileID: 0}
   positiveAnswerInfo:
     answerText: 0
-    addedResourcefulness: 0
-    addedCourage: 0
-    addedIndifference: 0
-    addedHappy: 0
+    addedParameterInfos:
+    - parameterType: 2
+      value: 1
     isLose: 0
     nextStorySettings: {fileID: 11400000, guid: 01d91e27d912a62418c83b50efebd441,
       type: 2}
   negativeAnswerInfo:
     answerText: 0
-    addedResourcefulness: 0
-    addedCourage: 0
-    addedIndifference: 0
-    addedHappy: 0
+    addedParameterInfos: []
     isLose: 0
     nextStorySettings: {fileID: 11400000, guid: 01d91e27d912a62418c83b50efebd441,
       type: 2}

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
@@ -6,12 +7,17 @@ using UnityEngine.UI;
 
 public class GameScreen : MonoBehaviour
 {
+    [Serializable]
+    class BarInfo
+    {
+        public Image image;
+        public ParameterType parameterType;
+    }
+    
+    
     [SerializeField] private Card card;
     [SerializeField] private EndGamePopup endGamePopupPrefab;
-    [SerializeField] Image resourcefulnessImage;
-    [SerializeField] Image courageImage;
-    [SerializeField] Image indifferenceImage;
-    [SerializeField] Image happyImage;
+    [SerializeField] private List<BarInfo> barsInfo;
 
 
     private StorySettings currentStorySettings;
@@ -85,28 +91,25 @@ public class GameScreen : MonoBehaviour
 
         StoryManager storyManager = GameManager.Instance.StoryManager;
 
-        float res = resourcefulnessImage.fillAmount;
-        float deltaResource = resourcefulnessImage.fillAmount -
-                              storyManager.resourcefulness / StoryManager.MAX_SCORE_COUNT;
-
-        float cor = courageImage.fillAmount;
-        float deltaCour = courageImage.fillAmount - storyManager.courage / StoryManager.MAX_SCORE_COUNT;
-
-        float happy = happyImage.fillAmount;
-        float deltaHappy = happyImage.fillAmount - storyManager.happy / StoryManager.MAX_SCORE_COUNT;
-        
-        float indiff = indifferenceImage.fillAmount;
-        float deltaIn = indifferenceImage.fillAmount - storyManager.indifference / StoryManager.MAX_SCORE_COUNT;
-
-
-        float factor = 0f;
-        DOTween.To(() => factor, (value) =>
+        foreach (var parameter in storyManager.ValueByType)
         {
-            factor = value;
-            resourcefulnessImage.fillAmount = res - factor * deltaResource;
-            happyImage.fillAmount = happy - factor * deltaHappy;
-            courageImage.fillAmount = cor - factor * deltaCour;
-            indifferenceImage.fillAmount = indiff - factor * deltaIn;
-        }, 1, 0.1f).SetId(this);
+            BarInfo barInfo = barsInfo.Find((item) => item.parameterType == parameter.Key);
+
+            if (barInfo != null)
+            {
+                Image image = barInfo.image;
+                float current = image.fillAmount;
+                float delta = current - (float)parameter.Value / storyManager.MaxValue;
+
+                if (!Mathf.Approximately(delta, 0f))
+                {
+                    DOTween.To(() => 0f, (value) =>
+                        {
+                            image.fillAmount = current - value * delta;
+                        }, 1, 0.1f)
+                        .SetId(this);
+                }
+            }
+        }
     }
 }
