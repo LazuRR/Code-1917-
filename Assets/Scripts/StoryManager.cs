@@ -5,6 +5,7 @@ using UnityEngine;
 public class StoryManager : MonoBehaviour
 {
     [SerializeField] private StorySettings firstStory;
+    [SerializeField] private List<StorySettings> allStories;
     [SerializeField] private List<AddedParameterInfo> beginParameterInfos;
     [SerializeField] private int maxValue;
     [SerializeField] private int minValueForLose;
@@ -23,7 +24,15 @@ public class StoryManager : MonoBehaviour
 
         for (int i = 0; i < beginParameterInfos.Count; i++)
         {
-            valueByType.Add(beginParameterInfos[i].parameterType, beginParameterInfos[i].value);
+            if (PlayerPrefs.HasKey(beginParameterInfos[i].parameterType.ToString()))
+            {
+                valueByType.Add(beginParameterInfos[i].parameterType,
+                    PlayerPrefs.GetInt(beginParameterInfos[i].parameterType.ToString()));
+            }
+            else
+            {
+                valueByType.Add(beginParameterInfos[i].parameterType, beginParameterInfos[i].value);
+            }
         }
     }
 
@@ -33,6 +42,13 @@ public class StoryManager : MonoBehaviour
         isLose = false;
         if (settings == null)
         {
+            if (PlayerPrefs.HasKey("last_story_number"))
+            {
+                int storyNumber = PlayerPrefs.GetInt("last_story_number");
+
+                return allStories[storyNumber];
+            }
+            
             return firstStory;
         }
 
@@ -54,6 +70,15 @@ public class StoryManager : MonoBehaviour
                 value = Mathf.Clamp(value + answerInfo.addedParameterInfos[i].value, 0, maxValue);
 
                 valueByType[answerInfo.addedParameterInfos[i].parameterType] = value;
+
+                PlayerPrefs.SetInt(answerInfo.addedParameterInfos[i].parameterType.ToString(), value);
+            }
+
+            int index = allStories.IndexOf(nextStorySettings);
+
+            if (index >= 0)
+            {
+                PlayerPrefs.SetInt("last_story_number", index);
             }
         }
 

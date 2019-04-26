@@ -13,6 +13,7 @@ public class MainMenuController : MonoBehaviour
     
     public void NewGame()
     {
+        PlayerPrefs.DeleteAll();
         SceneManager.LoadScene(1);
     }
     

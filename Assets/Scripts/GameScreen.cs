@@ -87,6 +87,7 @@ public class GameScreen : MonoBehaviour
             EndGamePopup endGamePopup = Instantiate(endGamePopupPrefab, transform);
             endGamePopup.transform.localPosition = Vector3.zero;
             endGamePopup.Show("End game");
+            PlayerPrefs.DeleteAll();
         }
 
         StoryManager storyManager = GameManager.Instance.StoryManager;
