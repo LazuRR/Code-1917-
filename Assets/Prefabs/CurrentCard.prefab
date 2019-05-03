@@ -432,7 +432,8 @@ MonoBehaviour:
   canvas: {fileID: 0}
   maxBorder: 100
   maxAngle: 10
-  speed: 5
+  speed: 2.5
+  backSpeed: 5
   fadeSpeed: 60
   fadeRotateSpeed: 10
 --- !u!114 &8568485013030577087

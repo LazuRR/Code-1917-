@@ -29,7 +29,8 @@ public class CardsAnimation : MonoBehaviour
 
     [SerializeField] private float maxBorder = 100;
     [SerializeField] private float maxAngle = 10;
-    [SerializeField] private float speed = 5f;
+    [SerializeField] private float speed = 2.5f;
+    [SerializeField] private float backSpeed = 5f;
 
     private GameObject currentCard = null;
     private List<GameObject> prevCards = new List<GameObject>();
@@ -154,7 +155,7 @@ public class CardsAnimation : MonoBehaviour
 
             diffPos = localpoint - prevPos;
             diffPos.y = 0;
-            cardRectTransform.anchoredPosition += diffPos;
+            cardRectTransform.anchoredPosition += diffPos * Time.smoothDeltaTime * speed;
             //cardRectTransform.anchoredPosition = new Vector2(diffPos.x + cardRectTransform.anchoredPosition.x, -Mathf.Abs(diffPos.x / 3));;
 
             if (cardRectTransform.anchoredPosition.x > maxBorder)
@@ -173,18 +174,18 @@ public class CardsAnimation : MonoBehaviour
         {
             if (cardPos.x > 5)
             {
-                cardRectTransform.anchoredPosition -= Vector2.Lerp(Vector2.zero, new Vector2(maxBorder,0), speed / 100f);
-                cardRectTransform.localEulerAngles -= Vector3.Lerp(Vector3.zero, new Vector3(0, 0, -maxAngle), speed / 100f);
+                cardRectTransform.anchoredPosition -= Vector2.Lerp(Vector2.zero, new Vector2(maxBorder,0), backSpeed / 100f);
+                cardRectTransform.localEulerAngles -= Vector3.Lerp(Vector3.zero, new Vector3(0, 0, -maxAngle), backSpeed / 100f);
             }
             else if (cardPos.x < -5)
             {
-                cardRectTransform.anchoredPosition -= Vector2.Lerp(Vector2.zero, new Vector2(-maxBorder,0), speed / 100f);
-                cardRectTransform.localEulerAngles -= Vector3.Lerp(Vector3.zero, new Vector3(0, 0, maxAngle), speed / 100f);
+                cardRectTransform.anchoredPosition -= Vector2.Lerp(Vector2.zero, new Vector2(-maxBorder,0), backSpeed / 100f);
+                cardRectTransform.localEulerAngles -= Vector3.Lerp(Vector3.zero, new Vector3(0, 0, maxAngle), backSpeed / 100f);
             }
             else
             {
                 cardRectTransform.anchoredPosition = Vector2.zero;
-                cardRectTransform.localEulerAngles -= Vector3.zero;
+                cardRectTransform.localEulerAngles = Vector3.zero;
             }
             
         }
@@ -196,34 +197,36 @@ public class CardsAnimation : MonoBehaviour
         Color colorYes = textMeshProYes.color;
         float posX = cardRectTransform.anchoredPosition.x;
         
-        if (posX > 0)
+        if (posX > 5)
         {
             colorPanel.a = posX / 255;
             imagePanel.color = colorPanel;
 
             colorNo.a = posX * 2.55f / 255f;
             textMeshProNo.color = colorNo;
+            
+            colorYes.a = 0;
+            textMeshProYes.color = colorYes;
+        }
+        else if (posX < -5)
+        {
+            colorPanel.a = - posX / 255;
+            imagePanel.color = colorPanel;
+
+            colorYes.a = - posX * 2.55f / 255f;
+            textMeshProYes.color = colorYes;
+                
+            colorNo.a = 0;
+            textMeshProNo.color = colorNo;
         }
         else
         {
-            if (posX < 0)
-            {
-                colorPanel.a = - posX / 255;
-                imagePanel.color = colorPanel;
+            colorNo.a = 0;
+            textMeshProNo.color = colorNo;
 
-                colorYes.a = - posX * 2.55f / 255f;
-                textMeshProYes.color = colorYes;
-            }
-            else
-            {
-                colorNo.a = 0;
-                textMeshProNo.color = colorNo;
-
-                colorYes.a = 0;
-                textMeshProYes.color = colorYes;
-            }
+            colorYes.a = 0;
+            textMeshProYes.color = colorYes;
         }
-
         #endregion
         
     }
