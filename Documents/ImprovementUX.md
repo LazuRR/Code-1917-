@@ -31,7 +31,24 @@
 - Реализация введения, как сплошной текст;
 - Добавления скрола на большие текста;
 
-### Тикеты
+### Тикеты, которые в процессе
 - [Добавление скрола](https://trello.com/c/v5C9ebHj/40-%D0%B4%D0%BE%D0%B1%D0%B0%D0%B2%D0%B8%D1%82%D1%8C-%D1%81%D0%BA%D1%80%D0%BE%D0%BB-%D0%BD%D0%B0-%D1%82%D0%B5%D0%BA%D1%81%D1%82%D0%B0)
 - [Анимация-подсказка для карточки](https://trello.com/c/d2uXE35c/39-%D0%B0%D0%BD%D0%B8%D0%BC%D0%B0%D1%86%D0%B8%D1%8F-%D0%BF%D0%BE%D0%B4%D1%81%D0%BA%D0%B0%D0%B7%D0%BA%D0%B8-%D0%B4%D0%BB%D1%8F-%D0%BF%D0%BE%D0%B2%D0%BE%D1%80%D0%BE%D1%82%D0%B0-%D0%BA%D0%B0%D1%80%D1%82%D0%BE%D1%87%D0%BA%D0%B8)
 - [Новая логика введения](https://trello.com/c/SfOMdSY1/38-%D0%BD%D0%BE%D0%B2%D0%B0%D1%8F-%D0%BB%D0%BE%D0%B3%D0%B8%D0%BA%D0%B0-%D0%B2%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D1%8F-%D1%81%D0%BF%D0%BB%D0%BE%D1%88%D0%BD%D0%BE%D0%B9-%D1%82%D0%B5%D0%BA%D1%81%D1%82)
+
+### Тикеты, которые уже готовы
+## Меню
+### Главное меню до
+![Главное меню до](https://github.com/OdareNNbI/Code-1917-/blob/master/Documents/UX/MenuOld.jpg) 
+### Главное меню после 
+![Главное меню после](https://github.com/OdareNNbI/Code-1917-/blob/master/Documents/UX/MenuNow.jpg) 
+## Игра
+### Игра до
+![Игра до](https://github.com/OdareNNbI/Code-1917-/blob/master/Documents/UX/GameOld.jpg) 
+### Игра после 
+![Игра после](https://github.com/OdareNNbI/Code-1917-/blob/master/Documents/UX/GameNow.jpg) 
+## Игровые элементы
+### Подсказки
+![Подсказки](https://github.com/OdareNNbI/Code-1917-/blob/master/Documents/UX/HintNow.jpg) 
+### Ответы на вопросы
+![Ответы на вопросы](https://github.com/OdareNNbI/Code-1917-/blob/master/Documents/UX/AnswerNow.jpg) 
