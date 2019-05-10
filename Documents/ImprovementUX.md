@@ -38,17 +38,17 @@
 
 ### Тикеты, которые уже готовы
 ## Меню
-Главное меню до
+### Главное меню до
 ![Главное меню до](https://github.com/OdareNNbI/Code-1917-/blob/master/Documents/UX/MenuOld.jpg) 
-Главное меню после 
-![Главное меню после](https://github.com/OdareNNbI/Code-1917-/blob/master/Documents/UX/MenuNew.jpg) 
+### Главное меню после 
+![Главное меню после](https://github.com/OdareNNbI/Code-1917-/blob/master/Documents/UX/MenuNow.jpg) 
 ## Игра
-Главное меню до
+### Игра до
 ![Игра до](https://github.com/OdareNNbI/Code-1917-/blob/master/Documents/UX/GameOld.jpg) 
-Главное меню после 
+### Игра после 
 ![Игра после](https://github.com/OdareNNbI/Code-1917-/blob/master/Documents/UX/GameNow.jpg) 
 ## Игровые элементы
-Подсказки
+### Подсказки
 ![Подсказки](https://github.com/OdareNNbI/Code-1917-/blob/master/Documents/UX/HintNow.jpg) 
-Ответы на вопросы
-![Подсказки](https://github.com/OdareNNbI/Code-1917-/blob/master/Documents/UX/AnswerNow.jpg) 
+### Ответы на вопросы
+![Ответы на вопросы](https://github.com/OdareNNbI/Code-1917-/blob/master/Documents/UX/AnswerNow.jpg) 
