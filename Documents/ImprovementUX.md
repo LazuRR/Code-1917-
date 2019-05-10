@@ -44,7 +44,7 @@
 ![Главное меню после](https://github.com/OdareNNbI/Code-1917-/blob/master/Documents/UX/MenuNow.jpg) 
 ## Игра
 ### Игра до
-![Игра до](https://github.com/OdareNNbI/Code-1917-/blob/master/Documents/UX/GameOld.jpg) 
+![Игра до](https://github.com/OdareNNbI/Code-1917-/blob/master/Documents/UX/GameOldd.jpg) 
 ### Игра после 
 ![Игра после](https://github.com/OdareNNbI/Code-1917-/blob/master/Documents/UX/GameNow.jpg) 
 ## Игровые элементы
