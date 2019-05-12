@@ -14,6 +14,12 @@ public class Card : MonoBehaviour
     [SerializeField] private float endAlphaValue;
     [SerializeField] private Text yesText;
     [SerializeField] private Text noText;
+    [SerializeField] private Image backgroundImage;
+    [SerializeField] private Image characterImage;
+    [SerializeField] private Sprite backgroundSprite;
+    [SerializeField] private Sprite paperSprite;
+
+    private string characterID = "characterID";
 
 
     private void OnDisable()
@@ -22,8 +28,21 @@ public class Card : MonoBehaviour
     }
 
 
-    public void ShowText(StorySettings storySettings, Action callback)
+    public void ShowText(StorySettings storySettings, Action callback, bool isImmediatelly)
     {
+        if (storySettings.isPaper)
+        {
+            DOTween.Kill(characterID);
+            characterImage.DOFade(0f, 0.3f).SetId(characterID);
+            backgroundImage.sprite = paperSprite;
+        }
+        else
+        {
+            DOTween.Kill(characterID);
+            characterImage.DOFade(1f, 0.3f).SetId(characterID);
+            backgroundImage.sprite = backgroundSprite;
+        }
+        
         text.text = storySettings.message;
 
         if (storySettings.isMessageOnly)
@@ -44,6 +63,11 @@ public class Card : MonoBehaviour
             image.sprite = storySettings.sprite;
 
             canvasGroup.DOFade(endAlphaValue, 0.4f).SetId(this);
+        }
+
+        if (isImmediatelly)
+        {
+            DOTween.Complete(characterID);
         }
 
         Color endColor = text.color;

@@ -48,6 +48,9 @@ public class StoryManager : MonoBehaviour
 
                 return allStories[storyNumber];
             }
+
+            int index = allStories.FindIndex((val) => val == firstStory);
+            PlayerPrefs.SetInt("last_story_number", index);
             
             return firstStory;
         }

@@ -8,13 +8,20 @@ public class MainMenuController : MonoBehaviour
     
     public void ContinueGame()
     {
-        SceneManager.LoadScene(1);
+        if (PlayerPrefs.HasKey("last_story_number"))
+        {
+            SceneManager.LoadScene(1);   
+        }
+        else
+        {
+            SceneManager.LoadScene(2);
+        }
     }
     
     public void NewGame()
     {
         PlayerPrefs.DeleteAll();
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
     
     public void ExitGame()

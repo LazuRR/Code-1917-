@@ -50,7 +50,7 @@ public class GameScreen : MonoBehaviour
 
     private void Start()
     {
-        SetNextText(true);
+        SetNextText(true, true);
     }
 
     void AgreeButton_OnClick()
@@ -69,7 +69,7 @@ public class GameScreen : MonoBehaviour
         }
     }
 
-    void SetNextText(bool isPositiveAnswer)
+    void SetNextText(bool isPositiveAnswer, bool isImmediatelly = false)
     {
         bool isLose;
         currentStorySettings = GameManager.Instance.StoryManager.GetNextStory(currentStorySettings, isPositiveAnswer, out isLose);
@@ -79,7 +79,7 @@ public class GameScreen : MonoBehaviour
             isAnswerButtonsEnabled = false;
             card.HideText(() =>
             {
-                card.ShowText(currentStorySettings, () => { isAnswerButtonsEnabled = true; });
+                card.ShowText(currentStorySettings, () => { isAnswerButtonsEnabled = true; }, isImmediatelly);
             });
         }
         else

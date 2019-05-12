@@ -8,6 +8,8 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "Story", menuName = "Settings/Story")]
 public class StorySettings : ScriptableObject
 {
+    public bool isPaper;
+    
     public string message;
     public bool isMessageOnly;
     public Sprite sprite;
