@@ -12,24 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2a43de0d95f2a841aa0fcf93f5537ca, type: 3}
   m_Name: 1
   m_EditorClassIdentifier: 
+  isPaper: 0
   message: "\u0422\u044B \u0447\u0435\u0440\u0442\u043E\u0432 \u0438\u0434\u0438\u043E\u0442!
     \u042F \u043F\u043E\u0442\u0435\u0440\u044F\u043B \u0438\u0437-\u0437\u0430 \u0442\u0435\u0431\u044F
     \u043D\u0430\u043F\u0430\u0440\u043D\u0438\u043A\u0430! \u041A\u0430\u043A\u043E\u0433\u043E
     \u0447\u0435\u0440\u0442\u0430 \u0442\u044B \u043D\u0435 \u0441\u043A\u0430\u0437\u0430\u043B,
-    \u0447\u0442\u043E \u0442\u0430\u043C \u043D\u043E\u0440\u0430 \u043E\u043B\u0433\u043E\u0439-\u0445\u043E\u0440\u0445\u043E\u044F? "
+    \u0447\u0442\u043E \u0442\u0430\u043C \u043D\u043E\u0440\u0430 \u043E\u043B\u0433\u043E\u044F?"
   isMessageOnly: 0
   sprite: {fileID: 0}
   positiveAnswerInfo:
     answerText: "\u041C\u043D\u0435 \u043E\u0447\u0435\u043D\u044C \u0436\u0430\u043B\u044C,
       \u044F \u043D\u0435 \u0437\u043D\u0430\u043B. \u0427\u0442\u043E \u0442\u0430\u043A\u043E\u0435
-      \u043E\u043B\u0433\u043E\u0439-\u0445\u043E\u0440\u0445\u043E\u0439? "
-    addedParameterInfos:
-    - parameterType: 2
-      value: 1
-    - parameterType: 3
-      value: 1
-    - parameterType: 2
-      value: 1
+      \u043E\u043B\u0433\u043E\u0439?"
+    addedParameterInfos: []
     isLose: 0
     nextStorySettings: {fileID: 11400000, guid: ae36ba666560b7942afe5b8be5fa4bb8,
       type: 2}

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2a43de0d95f2a841aa0fcf93f5537ca, type: 3}
   m_Name: 8
   m_EditorClassIdentifier: 
+  isPaper: 0
   message: "\u041E\u043D \u043E\u0442\u0442\u043E\u043B\u043A\u043D\u0443\u043B \u043C\u0435\u043D\u044F.
     \u0412\u043F\u0440\u043E\u0447\u0435\u043C, \u043C\u043D\u0435 \u0438 \u043D\u0435
     \u043D\u0443\u0436\u043D\u043E \u0431\u044B\u043B\u043E \u043C\u043D\u043E\u0433\u043E
@@ -33,20 +34,14 @@ MonoBehaviour:
   sprite: {fileID: 0}
   positiveAnswerInfo:
     answerText: "\u0423\u0439\u0442\u0438"
-    addedResourcefulness: -1
-    addedCourage: 0
-    addedIndifference: 0
-    addedHappy: 0
+    addedParameterInfos: []
     isLose: 0
-    nextStorySettings: {fileID: 11400000, guid: 26b794cea911ec14eba63b6e534ea9b9,
+    nextStorySettings: {fileID: 11400000, guid: 04fc7d6e7681abc418da891a0c99ea2f,
       type: 2}
   negativeAnswerInfo:
     answerText: "\u041F\u043E\u0434\u043E\u0436\u0434\u0430\u0442\u044C, \u043F\u043E\u043A\u0430
       \u043D\u043E\u0441\u0438\u043B\u044C\u0449\u0438\u043A \u0443\u0441\u043F\u043E\u043A\u043E\u0438\u0442\u0441\u044F"
-    addedResourcefulness: 0
-    addedCourage: 2
-    addedIndifference: 0
-    addedHappy: 0
+    addedParameterInfos: []
     isLose: 0
-    nextStorySettings: {fileID: 11400000, guid: b71d112c6a603234ba6aa261b740f890,
+    nextStorySettings: {fileID: 11400000, guid: 629f6dfb042e68e439b8eda6366f0875,
       type: 2}
