@@ -8,7 +8,6 @@ public class StoryManager : MonoBehaviour
     [SerializeField] private List<StorySettings> allStories;
     [SerializeField] private List<AddedParameterInfo> beginParameterInfos;
     [SerializeField] private int maxValue;
-    [SerializeField] private int minValueForLose;
 
     private Dictionary<ParameterType, int> valueByType;
 
@@ -59,22 +58,61 @@ public class StoryManager : MonoBehaviour
         isLose = answerInfo.isLose;
 
         StorySettings nextStorySettings = answerInfo.nextStorySettings;
+        
+        List<AddedParameterInfo> randomParaments = new List<AddedParameterInfo>();
+
+        if (Random.value < 0.7f)
+        {
+            randomParaments.Add(new AddedParameterInfo()
+            {
+                parameterType = ParameterType.Money,
+                value = Random.Range(-1, 2)
+            });
+        }
+        
+        if (Random.value < 0.5f)
+        {
+            randomParaments.Add(new AddedParameterInfo()
+            {
+                parameterType = ParameterType.Trust,
+                value = Random.Range(-1, 2)
+            });
+        }
+        
+        if (Random.value < 0.45f)
+        {
+            randomParaments.Add(new AddedParameterInfo()
+            {
+                parameterType = ParameterType.Information,
+                value = Random.Range(-1, 2)
+            });
+        }
+        
+        if (Random.value < 0.3f)
+        {
+            randomParaments.Add(new AddedParameterInfo()
+            {
+                parameterType = ParameterType.Personalisation,
+                value = Random.Range(-1, 2)
+            });
+        }
+        
 
         if (nextStorySettings != null)
         {
-            for (int i = 0; i < answerInfo.addedParameterInfos.Count; i++)
+            for (int i = 0; i < randomParaments.Count; i++)
             {
-                if (!valueByType.ContainsKey(answerInfo.addedParameterInfos[i].parameterType))
+                if (!valueByType.ContainsKey(randomParaments[i].parameterType))
                 {
-                    valueByType.Add(answerInfo.addedParameterInfos[i].parameterType, 0);
+                    valueByType.Add(randomParaments[i].parameterType, 0);
                 }
 
-                int value = valueByType[answerInfo.addedParameterInfos[i].parameterType];
-                value = Mathf.Clamp(value + answerInfo.addedParameterInfos[i].value, 0, maxValue);
+                int value = valueByType[randomParaments[i].parameterType];
+                value = Mathf.Clamp(value + randomParaments[i].value, 0, maxValue);
 
-                valueByType[answerInfo.addedParameterInfos[i].parameterType] = value;
+                valueByType[randomParaments[i].parameterType] = value;
 
-                PlayerPrefs.SetInt(answerInfo.addedParameterInfos[i].parameterType.ToString(), value);
+                PlayerPrefs.SetInt(randomParaments[i].parameterType.ToString(), value);
             }
 
             int index = allStories.IndexOf(nextStorySettings);
