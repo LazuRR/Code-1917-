@@ -194,10 +194,10 @@ RectTransform:
   m_Father: {fileID: 8568485013081702246}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.11643286, y: 0}
-  m_AnchorMax: {x: 0.84076345, y: 0.80355185}
-  m_AnchoredPosition: {x: 0, y: -18.100006}
-  m_SizeDelta: {x: 0, y: -36.3}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -7.700012, y: -43.399994}
+  m_SizeDelta: {x: -104.6, y: -86.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8568485012474509721
 CanvasRenderer:
@@ -273,10 +273,10 @@ RectTransform:
   m_Father: {fileID: 8568485013081702246}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.11643286, y: 0}
-  m_AnchorMax: {x: 0.84076345, y: 0.80355185}
-  m_AnchoredPosition: {x: 0, y: -18.100006}
-  m_SizeDelta: {x: 0, y: -36.3}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -7.700012, y: -43.399994}
+  m_SizeDelta: {x: -104.6, y: -86.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8568485012521169086
 CanvasRenderer:
@@ -434,7 +434,7 @@ MonoBehaviour:
   maxAngle: 10
   speed: 2.5
   backSpeed: 5
-  fadeSpeed: 1
+  fadeSpeed: 0.3
   fadeRotateSpeed: 30
 --- !u!114 &8568485013030577087
 MonoBehaviour:
@@ -458,6 +458,10 @@ MonoBehaviour:
   characterImage: {fileID: 8568485013882576763}
   backgroundSprite: {fileID: 21300000, guid: 1844af10c83e93940b4f071829452ae1, type: 3}
   paperSprite: {fileID: 21300000, guid: b41b5b2f002e26e4db4cd241a82abf65, type: 3}
+  updatedElements:
+  - {fileID: 0}
+  - {fileID: 0}
+  content: {fileID: 0}
 --- !u!1 &8568485013081702249
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,10 +497,10 @@ RectTransform:
   m_Father: {fileID: 8568485013030577058}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.15, y: 0}
-  m_AnchorMax: {x: 0.8453704, y: 1}
-  m_AnchoredPosition: {x: -2.2000122, y: 294.47}
-  m_SizeDelta: {x: -49.7, y: -588.95}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 294.485}
+  m_SizeDelta: {x: 0, y: -588.97}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8568485013081702244
 CanvasRenderer:
@@ -542,7 +546,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8568485013081702249}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -146154839, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 

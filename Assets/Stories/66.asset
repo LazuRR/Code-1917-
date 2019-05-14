@@ -58,12 +58,12 @@ MonoBehaviour:
       \u0434\u0432\u0435\u0440\u044C"
     addedParameterInfos: []
     isLose: 0
-    nextStorySettings: {fileID: 11400000, guid: 6b0f91476c53a124db2441a53f2fcbd0,
+    nextStorySettings: {fileID: 11400000, guid: 673d5d0b32bf45d418d0eb878a96445d,
       type: 2}
   negativeAnswerInfo:
     answerText: "\u0432\u044B\u0431\u0440\u0430\u0442\u044C \u043F\u0440\u0430\u0432\u0443\u044E
       \u0434\u0432\u0435\u0440\u044C"
     addedParameterInfos: []
     isLose: 0
-    nextStorySettings: {fileID: 11400000, guid: 90cbfcc012493bd4d9d71c185cb1f411,
+    nextStorySettings: {fileID: 11400000, guid: 673d5d0b32bf45d418d0eb878a96445d,
       type: 2}
