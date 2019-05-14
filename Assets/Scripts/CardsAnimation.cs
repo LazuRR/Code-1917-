@@ -232,8 +232,11 @@ public class CardsAnimation : MonoBehaviour, IPointerDownHandler
 
             colorYes.a = 0;
             textMeshProYes.color = colorYes;
+
+
+            colorPanel.a = 0f;
+            imagePanel.color = colorPanel;
         }
         #endregion
-        
     }
 }
