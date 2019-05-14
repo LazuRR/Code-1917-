@@ -50,8 +50,6 @@ public class CardsAnimation : MonoBehaviour, IPointerDownHandler
         defaultPosition = cardRectTransform.anchoredPosition;
 
         currentCard = this.gameObject;
-
-        GetComponent<BoxCollider2D>().size = defaultPosition;
     }
 
     public void OnPointerDown(PointerEventData eventData)
