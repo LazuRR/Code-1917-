@@ -18,6 +18,9 @@ public class Card : MonoBehaviour
     [SerializeField] private Image characterImage;
     [SerializeField] private Sprite backgroundSprite;
     [SerializeField] private Sprite paperSprite;
+    
+    public List<ContentSizeFitter> updatedElements;
+    public RectTransform content;
 
     private string characterID = "characterID";
 
@@ -30,10 +33,23 @@ public class Card : MonoBehaviour
 
     public void ShowText(StorySettings storySettings, Action callback, bool isImmediatelly)
     {
+        Canvas.ForceUpdateCanvases();
+        foreach (var contentSizeFitter in updatedElements)
+        {
+            LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)contentSizeFitter.transform );
+            contentSizeFitter.enabled = false;
+            contentSizeFitter.SetLayoutVertical();
+        }
+
+        Vector2 pos = content.anchoredPosition;
+        pos.y = 0;
+        content.anchoredPosition = pos;
+
+        StartCoroutine(End());
         if (storySettings.isPaper)
         {
             DOTween.Kill(characterID);
-            characterImage.DOFade(0f, 0.3f).SetId(characterID);
+            characterImage.DOFade(0f, 0.1f).SetId(characterID);
             backgroundImage.sprite = paperSprite;
         }
         else
@@ -79,6 +95,17 @@ public class Card : MonoBehaviour
                 callback();
             }
         });
+    }
+
+    IEnumerator End()
+    {
+        yield return new WaitForEndOfFrame();
+        foreach (var contentSizeFitter in updatedElements)
+        {
+            LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)contentSizeFitter.transform );
+            contentSizeFitter.enabled = true;
+            contentSizeFitter.SetLayoutVertical();
+        }
     }
 
 
