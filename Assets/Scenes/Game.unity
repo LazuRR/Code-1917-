@@ -740,7 +740,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1724244514}
   m_HandleRect: {fileID: 1724244513}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 0.99999017
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2522,6 +2522,31 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 26b794cea911ec14eba63b6e534ea9b9, type: 2}
   - {fileID: 11400000, guid: b71d112c6a603234ba6aa261b740f890, type: 2}
   - {fileID: 11400000, guid: 04fc7d6e7681abc418da891a0c99ea2f, type: 2}
+  - {fileID: 11400000, guid: 629f6dfb042e68e439b8eda6366f0875, type: 2}
+  - {fileID: 11400000, guid: ff0cbb7441e69454e89e3e0396c7a073, type: 2}
+  - {fileID: 11400000, guid: 4fa79b62c0446ea49a2a5d7b13365e33, type: 2}
+  - {fileID: 11400000, guid: 2ba3d2945bb22654996fa687bd68f8b2, type: 2}
+  - {fileID: 11400000, guid: f87b9d319b28cfa479757f2c263f68d0, type: 2}
+  - {fileID: 11400000, guid: 77e57898d9d1aba41bf27d5f8bcbdc7a, type: 2}
+  - {fileID: 11400000, guid: 8575cce6c2af7c04082fbf2c44ae9517, type: 2}
+  - {fileID: 11400000, guid: 58fdc64cb06596d4094c196c0d4bdbcb, type: 2}
+  - {fileID: 11400000, guid: c7b18fc7fddbc9448bb24f57216d2361, type: 2}
+  - {fileID: 11400000, guid: d73f6f54cc283684c84845f61dabd4e8, type: 2}
+  - {fileID: 11400000, guid: 7f3e6a896f1403943a9fcce7a54586e9, type: 2}
+  - {fileID: 11400000, guid: 5bcac1bc88a60d54d9af5cf5c63ca90f, type: 2}
+  - {fileID: 11400000, guid: f4bb0f68a761b5e488e642fe3cc27d8d, type: 2}
+  - {fileID: 11400000, guid: c1f1d8c5aa3922d49850fa4c2f70f86e, type: 2}
+  - {fileID: 11400000, guid: 729438139f5283f4c8730e68c1c5d638, type: 2}
+  - {fileID: 11400000, guid: e86c23536ac5efd47a8df4de0c7f796b, type: 2}
+  - {fileID: 11400000, guid: 7ce02bad8a8449b43ae10423793b7969, type: 2}
+  - {fileID: 11400000, guid: eaec90f29d5712649b8b786a74408a92, type: 2}
+  - {fileID: 11400000, guid: c10a308251d23d2448b2052df530a7fc, type: 2}
+  - {fileID: 11400000, guid: 12d17b1e1b049724db30ba8a0aadd527, type: 2}
+  - {fileID: 11400000, guid: d185bb78c0954314c88aa02f3bc9b0d3, type: 2}
+  - {fileID: 11400000, guid: 6fd64274a20d2614ca62e9237aec3700, type: 2}
+  - {fileID: 11400000, guid: 87f005f3fbecd6745bd406655236d0f0, type: 2}
+  - {fileID: 11400000, guid: 981c1f75a3c1b084d8d942320e1c797b, type: 2}
+  - {fileID: 11400000, guid: cf32e25347c70b1448088c9af133ddb6, type: 2}
   beginParameterInfos:
   - parameterType: 1
     value: 3
@@ -2909,8 +2934,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.010253906, y: -0.0014779195}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 28, y: 0.009712187}
+  m_SizeDelta: {x: -56, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1373829430
 MonoBehaviour:
@@ -2941,8 +2966,8 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
+    m_Top: 20
+    m_Bottom: 20
   m_ChildAlignment: 1
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
@@ -3264,7 +3289,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 1000
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1080, y: 2280}
+  m_ReferenceResolution: {x: 1080, y: 1920}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -3374,7 +3399,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 531.5, y: 0}
+  m_AnchoredPosition: {x: 503.5, y: 0}
   m_SizeDelta: {x: 1000, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1546196821
@@ -4555,9 +4580,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8568485013030577087, guid: 179cf15bc15fdee4284ed0ba97ce57fd,
         type: 3}
+      propertyPath: updatedElements.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8568485013030577087, guid: 179cf15bc15fdee4284ed0ba97ce57fd,
+        type: 3}
       propertyPath: text
       value: 
       objectReference: {fileID: 1546196821}
+    - target: {fileID: 8568485013030577087, guid: 179cf15bc15fdee4284ed0ba97ce57fd,
+        type: 3}
+      propertyPath: updatedElements.Array.data[0]
+      value: 
+      objectReference: {fileID: 1546196823}
+    - target: {fileID: 8568485013030577087, guid: 179cf15bc15fdee4284ed0ba97ce57fd,
+        type: 3}
+      propertyPath: updatedElements.Array.data[1]
+      value: 
+      objectReference: {fileID: 1373829430}
+    - target: {fileID: 8568485013030577087, guid: 179cf15bc15fdee4284ed0ba97ce57fd,
+        type: 3}
+      propertyPath: content
+      value: 
+      objectReference: {fileID: 1373829429}
     - target: {fileID: 8568485013030577086, guid: 179cf15bc15fdee4284ed0ba97ce57fd,
         type: 3}
       propertyPath: canvas
