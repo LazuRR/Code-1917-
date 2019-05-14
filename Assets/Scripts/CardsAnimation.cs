@@ -36,6 +36,7 @@ public class CardsAnimation : MonoBehaviour
     private List<GameObject> prevCards = new List<GameObject>();
 
     private bool isPrevRight;
+    Vector3 defaultPosition;
 
     [SerializeField] private float fadeSpeed = 5f;
     [SerializeField] private float fadeRotateSpeed = 5f;
@@ -44,6 +45,8 @@ public class CardsAnimation : MonoBehaviour
     {
         cardRectTransform = card.GetComponent<RectTransform>();
         imagePanel = textPanel.GetComponent<Image>();
+
+        defaultPosition = cardRectTransform.anchoredPosition;
 
         currentCard = this.gameObject;
     }
@@ -113,7 +116,7 @@ public class CardsAnimation : MonoBehaviour
                     Destroy(clone, 0.3f);
                     Color color = clone.GetComponent<Image>().color = new Color32(40,40,50,255);
 
-                    cardRectTransform.anchoredPosition = Vector2.zero;
+                    cardRectTransform.anchoredPosition = defaultPosition;
                     cardRectTransform.localEulerAngles = Vector3.zero;
                 }
             }
@@ -137,7 +140,7 @@ public class CardsAnimation : MonoBehaviour
                     Destroy(clone, 0.3f);
                     Color color = clone.GetComponent<Image>().color = new Color32(40,40,50,255);
 
-                    cardRectTransform.anchoredPosition = Vector2.zero;
+                    cardRectTransform.anchoredPosition = defaultPosition;
                     cardRectTransform.localEulerAngles = Vector3.zero;
                 }
             }
@@ -184,7 +187,7 @@ public class CardsAnimation : MonoBehaviour
             }
             else
             {
-                cardRectTransform.anchoredPosition = Vector2.zero;
+                cardRectTransform.anchoredPosition = defaultPosition;
                 cardRectTransform.localEulerAngles = Vector3.zero;
             }
             
