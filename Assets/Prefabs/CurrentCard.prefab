@@ -434,8 +434,8 @@ MonoBehaviour:
   maxAngle: 10
   speed: 2.5
   backSpeed: 5
-  fadeSpeed: 60
-  fadeRotateSpeed: 10
+  fadeSpeed: 1
+  fadeRotateSpeed: 30
 --- !u!114 &8568485013030577087
 MonoBehaviour:
   m_ObjectHideFlags: 0
