@@ -9,6 +9,7 @@ public class EndGamePopup : MonoBehaviour
 {
     [SerializeField] private Text endGameTExt;
     [SerializeField] private Button tapToContinueButton;
+    public Transform showTR;
     
     public void Show(string text)
     {
@@ -19,7 +20,7 @@ public class EndGamePopup : MonoBehaviour
 
         endGameTExt.text = text.ToUpper();
 
-        transform.localScale = Vector3.one * 0.001f;
-        transform.DOScale(Vector3.one, 0.2f);
+        showTR.localScale = Vector3.one * 0.001f;
+        showTR.DOScale(Vector3.one, 0.2f);
     }
 }

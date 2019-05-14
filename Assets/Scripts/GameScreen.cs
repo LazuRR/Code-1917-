@@ -86,7 +86,7 @@ public class GameScreen : MonoBehaviour
         {
             EndGamePopup endGamePopup = Instantiate(endGamePopupPrefab, transform);
             endGamePopup.transform.localPosition = Vector3.zero;
-            endGamePopup.Show("End game");
+            endGamePopup.Show("ПРОДОЛЖЕНИЕ СЛЕДУЕТ :)");
             PlayerPrefs.DeleteAll();
         }
 

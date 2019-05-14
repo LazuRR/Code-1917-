@@ -141,6 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endGameTExt: {fileID: 4168161549896491096}
   tapToContinueButton: {fileID: 7388680951447423907}
+  showTR: {fileID: 6723413077599283949}
 --- !u!1 &3030684019571767834
 GameObject:
   m_ObjectHideFlags: 0
