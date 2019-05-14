@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class CardsAnimation : MonoBehaviour
+public class CardsAnimation : MonoBehaviour, IPointerDownHandler
 {
     public static event Action<bool> OnAnswer;
 
@@ -49,8 +50,23 @@ public class CardsAnimation : MonoBehaviour
         defaultPosition = cardRectTransform.anchoredPosition;
 
         currentCard = this.gameObject;
+
+        GetComponent<BoxCollider2D>().size = defaultPosition;
     }
 
+    public void OnPointerDown(PointerEventData eventData)
+    {
+//        Debug.Log("click");
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            cardRectTransform, 
+            Input.mousePosition, 
+            canvas.worldCamera, 
+            out startPos);
+            
+        prevPos = startPos;
+
+        isButtonUp = false;
+    }
     
     void Update()
     {
@@ -78,18 +94,7 @@ public class CardsAnimation : MonoBehaviour
             }
         }
         
-        if (Input.GetMouseButtonDown(0))
-        {
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                cardRectTransform, 
-                Input.mousePosition, 
-                canvas.worldCamera, 
-                out startPos);
-            
-            prevPos = startPos;
-
-            isButtonUp = false;
-        }
+        
         
         Vector3 cardPos = cardRectTransform.anchoredPosition;
         
